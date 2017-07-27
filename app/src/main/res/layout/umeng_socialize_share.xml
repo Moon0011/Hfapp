@@ -100,7 +100,7 @@
             android:layout_marginLeft="15dp"
             android:id="@+id/umeng_image_edge"
             android:layout_marginTop="15dp"
-           android:background="@mipmap/umeng_socialize_edit_bg"
+           android:background="@drawable/umeng_socialize_edit_bg"
             >
         <ImageView
             android:id="@+id/umeng_share_icon"

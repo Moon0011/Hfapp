@@ -388,11 +388,6 @@ public class MainActivity extends BaseActivity implements OnItemClickListener {
                         Toast.makeText(mContext, ((HeadRespBean.DataBean) msg.obj).getInfo(), Toast.LENGTH_SHORT).show();
                         return;
                     }
-//                    Picasso.with(mContext)
-//                            .load(dateBean.getPath())
-//                            .placeholder(R.mipmap.head)
-//                            .error(R.mipmap.head)
-//                            .into(imgHead);
                     x.image().bind(imgHead,
                             dateBean.getPath(),
                             imageOptions,
