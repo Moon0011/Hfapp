@@ -35,6 +35,8 @@ import com.hover.hf.AppContext;
 import com.hover.hf.R;
 import com.hover.hf.ui.base.BaseApplication;
 
+import org.xutils.common.util.LogUtil;
+
 import java.io.File;
 import java.lang.reflect.Field;
 import java.text.NumberFormat;
@@ -248,7 +250,7 @@ public class TDevice {
             if (pckInfo != null)
                 return true;
         } catch (NameNotFoundException e) {
-            TLog.error(e.getMessage());
+            LogUtil.e(e.getMessage());
         }
         return false;
     }
@@ -458,7 +460,7 @@ public class TDevice {
             return BaseApplication.context().getPackageManager()
                     .getPackageInfo(pckName, 0);
         } catch (NameNotFoundException e) {
-            TLog.error(e.getMessage());
+            LogUtil.e(e.getMessage());
         }
         return null;
     }
@@ -577,7 +579,7 @@ public class TDevice {
         if (mainIntent == null) {
             mainIntent = new Intent(packageName);
         } else {
-            TLog.log("Action:" + mainIntent.getAction());
+            LogUtil.e("Action:" + mainIntent.getAction());
         }
         context.startActivity(mainIntent);
     }
