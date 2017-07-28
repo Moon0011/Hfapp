@@ -78,8 +78,8 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
                 // 加载中或错误图片的ScaleType
                 .setPlaceholderScaleType(ImageView.ScaleType.FIT_XY)
                 .setImageScaleType(ImageView.ScaleType.FIT_XY)
-                .setLoadingDrawableId(R.mipmap.robot)
-                .setFailureDrawableId(R.mipmap.robot)
+                .setLoadingDrawableId(R.mipmap.head)
+                .setFailureDrawableId(R.mipmap.head)
                 .build();
     }
 

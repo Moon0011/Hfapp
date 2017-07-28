@@ -40,7 +40,6 @@ import com.hover.hf.widget.adaptablebottomnav.view.AdaptableBottomNavigationView
 import com.hover.hf.widget.adaptablebottomnav.view.ViewSwapper;
 import com.lzy.imagepicker.ImagePicker;
 import com.lzy.imagepicker.bean.ImageItem;
-import com.squareup.picasso.Picasso;
 
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
@@ -169,11 +168,15 @@ public class MainActivity extends BaseActivity implements OnItemClickListener {
         if (AppContext.getInstance().isLogin()) {
             UserInfo userInfo = AppContext.getInstance().getLoginUser();
             btnLogo.setText(userInfo.getAccount());
-            Picasso.with(mContext)
-                    .load(userInfo.getHeadimg())
-                    .placeholder(R.mipmap.head)
-                    .error(R.mipmap.head)
-                    .into(imgHead);
+//            Picasso.with(mContext)
+//                    .load(userInfo.getHeadimg())
+//                    .placeholder(R.mipmap.head)
+//                    .error(R.mipmap.head)
+//                    .into(imgHead);
+            x.image().bind(imgHead,
+                    userInfo.getHeadimg(),
+                    imageOptions,
+                    null);
         } else {
             btnLogo.setText(R.string.login);
         }

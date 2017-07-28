@@ -12,7 +12,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.RequestManager;
-import com.hover.hf.util.ImageLoader;
 
 
 @SuppressWarnings("unused")
@@ -167,19 +166,11 @@ public class ViewHolder {
         iv.setImageResource(imgRes);
     }
 
-    public void setImageForNet(int viewId, String imgUrl, int emptyRes) {
-        ImageView iv = getView(viewId);
-        RequestManager loader = mCaller.getImgLoader();
-        ImageLoader.loadImage(loader, iv, imgUrl, emptyRes);
-    }
-
-//    public void setImageForNet(int viewId, String imgUrl) {
-//        setImageForNet(viewId, imgUrl, R.drawable.bg_normal);
-//    }
-
-    // 设置头像
-//    public void setPortrait(int viewId, String imgUrl) {
-//        setImageForNet(viewId, imgUrl, R.drawable.bg_normal);
+//    public void setImageForNet(int viewId, String imgUrl, ImageOptions imageOptions) {
+//        x.image().bind((ImageView) getView(R.id.icon),
+//                imgUrl,
+//                imageOptions,
+//                null);
 //    }
 
     public void setButtonText(int viewId, String text) {
