@@ -1,5 +1,6 @@
 package com.hover.hf.ui.login;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatEditText;
@@ -25,6 +26,8 @@ import com.zhy.http.okhttp.OkHttpUtils;
 
 import java.util.Map;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import butterknife.Bind;
 import butterknife.OnClick;
@@ -229,4 +232,24 @@ public class LoginActivity extends BaseActivity {
         super.onSaveInstanceState(outState);
         UMShareAPI.get(this).onSaveInstanceState(outState);
     }
+
+    //使用正则表达式判断电话号码
+    public static boolean isMobileNO(String tel) {
+        Pattern p = Pattern.compile("^(13[0-9]|15([0-3]|[5-9])|14[5,7,9]|17[1,3,5,6,7,8]|18[0-9])\\d{8}$");
+        Matcher m = p.matcher(tel);
+        System.out.println(m.matches() + "---");
+        return m.matches();
+    }
+
+    //获取验证码信息,进行计时操作
+    private void startCountBack() {
+        ((Activity) mContext).runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+//                getyanzhengma1.setText(countSeconds + "");
+//                mCountHandler.sendEmptyMessage(0);
+            }
+        });
+    }
+
 }

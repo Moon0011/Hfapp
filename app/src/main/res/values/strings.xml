@@ -10,6 +10,7 @@
 
     <string name="login">登录</string>
     <string name="register">注册</string>
+    <string name="register_phone">手机注册</string>
     <string name="tip_no_internet">当前没有可用的网络链接</string>
 
 

@@ -14,10 +14,4 @@
     <color name="list_divider_color">#DADADA</color>
 
     <color name="main_green">#24cf5f</color>
-
-
-    <color name="ques_bt_text_color_dark">#6a6a6a</color>
-    <color name="blog_title_text_color_light">#111111</color>
-    <color name="count_text_color_light">#9d9d9d</color>
-
 </resources>
