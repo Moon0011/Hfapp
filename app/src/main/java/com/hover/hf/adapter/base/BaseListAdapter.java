@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
-import com.bumptech.glide.RequestManager;
 import com.hover.hf.adapter.ViewHolder;
 
 import java.util.ArrayList;
@@ -124,18 +123,11 @@ public abstract class BaseListAdapter<T> extends BaseAdapter implements ViewHold
     }
 
     @Override
-    public RequestManager getImgLoader() {
-        return mCallback.getImgLoader();
-    }
-
-    @Override
     public LayoutInflater getInflate() {
         return mInflater;
     }
 
     public interface Callback {
-        RequestManager getImgLoader();
-
         Context getContext();
 
         Date getSystemTime();

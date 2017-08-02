@@ -34,6 +34,7 @@ import com.hover.hf.common.Urls;
 import com.hover.hf.ui.base.BaseActivity;
 import com.hover.hf.ui.login.LoginActivity;
 import com.hover.hf.ui.map.LocationFilter;
+import com.hover.hf.ui.player.VideoActivity;
 import com.hover.hf.ui.saoyisao.ScannerActivity;
 import com.hover.hf.util.StringUtils;
 import com.hover.hf.widget.adaptablebottomnav.view.AdaptableBottomNavigationView;
@@ -125,6 +126,7 @@ public class MainActivity extends BaseActivity implements OnItemClickListener {
                 AppContext.getInstance().logOut();
                 break;
             case Constants.SETTING:
+                VideoActivity.intentTo(mContext, "http://192.168.0.106:8081/Tp5ApiServer/public/video/yha01.mp4", "Year Hare Affair01");
                 break;
             case Constants.ABOUT:
                 startActivity(new Intent(MainActivity.this, LocationFilter.class));

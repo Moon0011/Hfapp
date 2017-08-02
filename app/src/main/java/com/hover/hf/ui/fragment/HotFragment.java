@@ -27,11 +27,6 @@ public class HotFragment extends BaseListFragment {
     private boolean isFirst = true;
     private int page = 1;
 
-    public static HotFragment newInstance() {
-        HotFragment hotFragment = new HotFragment();
-        return hotFragment;
-    }
-
     @Override
     protected BaseListAdapter getListAdapter() {
         return new HotAdapter(this);
@@ -116,5 +111,4 @@ public class HotFragment extends BaseListFragment {
                     }
                 });
     }
-
 }

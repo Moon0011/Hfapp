@@ -3,16 +3,11 @@ package com.hover.hf.ui.base;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
-
-import java.io.Serializable;
 
 import butterknife.ButterKnife;
 
@@ -20,7 +15,7 @@ import butterknife.ButterKnife;
  * Fragment基础类
  */
 
-@SuppressWarnings("WeakerAccess")
+
 public abstract class BaseFragment extends Fragment {
     protected View mRoot;
     protected Bundle mBundle;
@@ -84,53 +79,6 @@ public abstract class BaseFragment extends Fragment {
         return (T) mRoot.findViewById(viewId);
     }
 
-    protected <T extends Serializable> T getBundleSerializable(String key) {
-        if (mBundle == null) {
-            return null;
-        }
-        return (T) mBundle.getSerializable(key);
-    }
-
-    /**
-     * 获取一个图片加载管理器
-     *
-     * @return RequestManager
-     */
-    public synchronized RequestManager getImgLoader() {
-        if (mImgLoader == null)
-            mImgLoader = Glide.with(this);
-        return mImgLoader;
-    }
-
-    protected void setText(int viewId, String text) {
-        TextView textView = findView(viewId);
-        if (TextUtils.isEmpty(text)) {
-            return;
-        }
-        textView.setText(text);
-    }
-
-    protected void setText(int viewId, String text, String emptyTip) {
-        TextView textView = findView(viewId);
-        if (TextUtils.isEmpty(text)) {
-            textView.setText(emptyTip);
-            return;
-        }
-        textView.setText(text);
-    }
-
-    protected void setTextEmptyGone(int viewId, String text) {
-        TextView textView = findView(viewId);
-        if (TextUtils.isEmpty(text)) {
-            textView.setVisibility(View.GONE);
-            return;
-        }
-        textView.setText(text);
-    }
-
-    protected void setGone(int id) {
-        findView(id).setVisibility(View.GONE);
-    }
 
     protected void setVisibility(int id) {
         findView(id).setVisibility(View.VISIBLE);

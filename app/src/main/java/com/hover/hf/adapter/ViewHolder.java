@@ -11,8 +11,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.RequestManager;
-
 
 @SuppressWarnings("unused")
 public class ViewHolder {
@@ -23,8 +21,6 @@ public class ViewHolder {
     private Callback mCaller;
 
     public interface Callback {
-        RequestManager getImgLoader();
-
         LayoutInflater getInflate();
     }
 

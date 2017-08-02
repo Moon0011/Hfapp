@@ -25,8 +25,6 @@ import java.util.Properties;
 import java.util.UUID;
 
 import static com.hover.hf.AppConfig.KEY_FRITST_START;
-import static com.hover.hf.AppConfig.KEY_LOAD_IMAGE;
-import static com.hover.hf.AppConfig.KEY_TWEET_DRAFT;
 
 /**
  * 全局应用程序类：用于保存和调用全局应用配置及访问网络数据
@@ -37,9 +35,7 @@ import static com.hover.hf.AppConfig.KEY_TWEET_DRAFT;
  */
 public class AppContext extends BaseApplication {
 
-    public static final int PAGE_SIZE = 20;// 默认分页大小
     private static AppContext instance;
-    private int loginUid;
     private boolean login;
     public LocationService locationService;
     public Vibrator mVibrator;
@@ -160,10 +156,6 @@ public class AppContext extends BaseApplication {
         return info;
     }
 
-    public int getLoginUid() {
-        return loginUid;
-    }
-
     public boolean isLogin() {
         return login;
     }
@@ -258,10 +250,6 @@ public class AppContext extends BaseApplication {
         Core.getKJBitmap().cleanCache();
     }
 
-    public static void setLoadImage(boolean flag) {
-        set(KEY_LOAD_IMAGE, flag);
-    }
-
     /**
      * 判断当前版本是否兼容目标版本的方法
      *
@@ -273,24 +261,6 @@ public class AppContext extends BaseApplication {
         return currentVersion >= VersionCode;
     }
 
-    public static String getTweetDraft() {
-        return getPreferences().getString(
-                KEY_TWEET_DRAFT + getInstance().getLoginUid(), "");
-    }
-
-    public static void setTweetDraft(String draft) {
-        set(KEY_TWEET_DRAFT + getInstance().getLoginUid(), draft);
-    }
-
-    public static String getNoteDraft() {
-        return getPreferences().getString(
-                AppConfig.KEY_NOTE_DRAFT + getInstance().getLoginUid(), "");
-    }
-
-    public static void setNoteDraft(String draft) {
-        set(AppConfig.KEY_NOTE_DRAFT + getInstance().getLoginUid(), draft);
-    }
-
     public static boolean isFristStart() {
         return getPreferences().getBoolean(KEY_FRITST_START, true);
     }
@@ -298,7 +268,6 @@ public class AppContext extends BaseApplication {
     public static void setFristStart(boolean frist) {
         set(KEY_FRITST_START, frist);
     }
-
 
     public static Gson createGson() {
         com.google.gson.GsonBuilder gsonBuilder = new com.google.gson.GsonBuilder();

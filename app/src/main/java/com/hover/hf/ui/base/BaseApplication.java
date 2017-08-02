@@ -2,14 +2,12 @@ package com.hover.hf.ui.base;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.res.Resources;
 import android.os.Build;
-import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +16,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hover.hf.R;
-import com.hover.hf.util.StringUtils;
 import com.umeng.socialize.PlatformConfig;
 import com.umeng.socialize.UMShareAPI;
 
@@ -62,61 +59,6 @@ public class BaseApplication extends Application {
         return (BaseApplication) _context;
     }
 
-    public static Resources resources() {
-        return _resource;
-    }
-
-    /**
-     * 放入已读文章列表中
-     */
-    public static void putReadedPostList(String prefFileName, String key,
-                                         String value) {
-        SharedPreferences preferences = getPreferences(prefFileName);
-        int size = preferences.getAll().size();
-        Editor editor = preferences.edit();
-        if (size >= 100) {
-            editor.clear();
-        }
-        editor.putString(key, value);
-        apply(editor);
-    }
-
-    /**
-     * 读取是否是已读的文章列表
-     *
-     * @return
-     */
-    public static boolean isOnReadedPostList(String prefFileName, String key) {
-        return getPreferences(prefFileName).contains(key);
-    }
-
-    /**
-     * 记录列表上次刷新时间
-     *
-     * @param key
-     * @param value
-     * @return void
-     * @author 火蚁
-     * 2015-2-9 下午2:21:37
-     */
-    public static void putToLastRefreshTime(String key, String value) {
-        SharedPreferences preferences = getPreferences(LAST_REFRESH_TIME);
-        Editor editor = preferences.edit();
-        editor.putString(key, value);
-        apply(editor);
-    }
-
-    /**
-     * 获取列表的上次刷新时间
-     *
-     * @param key
-     * @return
-     * @author 火蚁
-     * 2015-2-9 下午2:22:04
-     */
-    public static String getLastRefreshTime(String key) {
-        return getPreferences(LAST_REFRESH_TIME).getString(key, StringUtils.getCurTimeStr());
-    }
 
     @TargetApi(Build.VERSION_CODES.GINGERBREAD)
     public static void apply(SharedPreferences.Editor editor) {
@@ -183,17 +125,6 @@ public class BaseApplication extends Application {
                 getPreferences().getInt("screen_height", 854)};
     }
 
-    public static void saveDisplaySize(Activity activity) {
-        DisplayMetrics displaymetrics = new DisplayMetrics();
-        activity.getWindowManager().getDefaultDisplay()
-                .getMetrics(displaymetrics);
-        SharedPreferences.Editor editor = getPreferences().edit();
-        editor.putInt("screen_width", displaymetrics.widthPixels);
-        editor.putInt("screen_height", displaymetrics.heightPixels);
-        editor.putFloat("density", displaymetrics.density);
-        editor.commit();
-    }
-
     public static String string(int id) {
         return _resource.getString(id);
     }
@@ -210,24 +141,8 @@ public class BaseApplication extends Application {
         showToast(message, Toast.LENGTH_LONG, 0, Gravity.BOTTOM);
     }
 
-    public static void showToast(int message, int icon) {
-        showToast(message, Toast.LENGTH_LONG, icon);
-    }
-
-    public static void showToast(String message, int icon) {
-        showToast(message, Toast.LENGTH_LONG, icon, Gravity.BOTTOM);
-    }
-
     public static void showToastShort(int message) {
         showToast(message, Toast.LENGTH_SHORT, 0);
-    }
-
-    public static void showToastShort(String message) {
-        showToast(message, Toast.LENGTH_SHORT, 0, Gravity.BOTTOM);
-    }
-
-    public static void showToastShort(int message, Object... args) {
-        showToast(message, Toast.LENGTH_SHORT, 0, Gravity.BOTTOM, args);
     }
 
     public static void showToast(int message, int duration, int icon) {

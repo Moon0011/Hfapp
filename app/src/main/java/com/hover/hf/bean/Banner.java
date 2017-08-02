@@ -5,13 +5,6 @@ package com.hover.hf.bean;
  * on 16-5-23.
  */
 public class Banner extends Base {
-    public static final int BANNER_TYPE_URL = 0;//链接新闻
-    public static final int BANNER_TYPE_SOFTWARE = 1;//
-    public static final int BANNER_TYPE_POST = 2;//
-    public static final int BANNER_TYPE_BLOG = 3;//
-    public static final int BANNER_TYPE_TRANSLATEL = 4;//
-    public static final int BANNER_TYPE_EVENT = 5;//
-    public static final int BANNER_TYPE_NEWS = 6;
     private String name;
     private String detail;
     private String img;
