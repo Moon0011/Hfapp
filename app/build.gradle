@@ -45,6 +45,12 @@ repositories {
     }
 }
 
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     //依赖下面的库
@@ -96,4 +102,7 @@ dependencies {
     compile files('libs/umeng_social_tool.jar')
     //xUtils
     compile 'org.xutils:xutils:3.3.22'
+
+    compile(name:'ijkplayer-exo-release', ext:'aar')
+    compile(name:'ijkplayer-java-release', ext:'aar')
 }
